@@ -1,0 +1,50 @@
+﻿
+@model EFManytoMany.web.QviewModel
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card" id="question" data-id="@Model.Question.Id">
+                <h1>@Model.Question.Title</h1>
+                <p>
+                    @Model.Question.Text
+                </p>
+                @foreach (var m in Model.Tags)
+                {
+            <form method="post" action="/home/home">               
+                <button name="Name" value="@m.Name">@m.Name</button>
+            </form>
+                    
+                }
+
+
+            </div>
+
+         
+            @if (!Model.DidAnswer && Model.IsAuth)
+            {
+                <div class="card">
+                    <form method="post"  action="/home/Answer">
+                        <textarea class="form-control" name="text" rows="5"></textarea>
+                        <input type="hidden" name="Id" value="@Model.Question.Id" />
+                        <button class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            }
+            @foreach (var a in Model.Question.Answers)
+            {
+                <div class="card">
+                    <p>
+                        @a.Text
+                    </p>
+                </div>
+            }
+
+        </div>
+        @section Scripts{ 
+                <script src="~/js/Likes.js"></script>
+        }
+    </body>
+    </html>

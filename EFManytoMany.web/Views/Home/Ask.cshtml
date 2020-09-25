@@ -1,0 +1,28 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+</head>
+<body>
+    <form method="post" action="/home/submit">
+        <input class="form-control" name="title" placeholder="Title" />
+        <textarea class="form-control" name="text" placeholder="type question here"></textarea>
+        <select multiple class="form-control" id="tags" name="tags" data-role="tagsinput"></select>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+    @section scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+        <script>
+            $(() => {
+                $("#tags").tagsinput();
+            })
+        </script>
+    }
+    @section styles
+    {
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
+    }
+
+
+</body>
+</html>

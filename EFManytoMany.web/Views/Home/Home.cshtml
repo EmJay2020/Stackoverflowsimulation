@@ -1,0 +1,15 @@
+﻿@model List<EFManytoMany.data.Questions>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @foreach(var m in Model)
+    {
+        <div class="card">
+            <a href="/home/q?id=@m.Id">@m.Title</a>
+            <h4>@m.Likes.Count</h4>
+        </div>
+    }
+</body>
+</html>
